@@ -21,7 +21,7 @@ and create project in your gcp, then enable billing for a project
 
 ## set up staging environment using shell
 
-'''
+```
 git clone git@github.com:ca-rpa/gcp-terraform.git
 
 cd stg
@@ -29,11 +29,11 @@ cd stg
 
 terraform apply
 
-'''
+```
 
 ## set up staging environment manually
 
-'''
+```
 git clone git@github.com:ca-rpa/gcp-terraform.git
 
 cd stg
@@ -73,6 +73,6 @@ gcloud projects add-iam-policy-binding $(echo $PROJECT_ID) --member serviceAccou
 terraform apply
 
 
-'''
+```
 
 
