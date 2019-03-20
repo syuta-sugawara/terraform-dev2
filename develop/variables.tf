@@ -1,7 +1,5 @@
 variable "project-name" {}
-#variable "project-region" {}
 
-#variable "project-zone" {}
 
 locals {
   # region for subnet, nat,router and gke
@@ -12,7 +10,6 @@ locals {
 
   cluster-name="rpa-dev-cluster"
 
- 
 }
 
 variable "numberOfApp" {

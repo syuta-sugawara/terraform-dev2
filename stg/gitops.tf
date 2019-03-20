@@ -1,18 +1,18 @@
 
-  resource "google_sourcerepo_repository" "apprepo-dev" {
-    count = "${ length(var.numberOfApp) }"
-    name = "terraform-app${count.index}-repo-dev"
+  resource "google_sourcerepo_repository" "apprepo-stg" {
+    count = "${ var.numberOfApp }"
+    name = "terraform-app${count.index}-repo-stg"
 }
 
-resource "google_sourcerepo_repository" "envrepo-dev" {
+resource "google_sourcerepo_repository" "envrepo-stg" {
   name = "${local.env-repo-name}"
 }
 
 resource "google_cloudbuild_trigger" "ci-trigger" {
-  count = "${ length(var.numberOfApp) }"
+  count = "${ var.numberOfApp }"
   trigger_template {
     branch_name = "master"
-    repo_name   = "terraform-app${count.index}-repo-dev"
+    repo_name   = "terraform-app${count.index}-repo-stg"
   }
 
   substitutions = {

@@ -1,6 +1,6 @@
 
 resource "google_container_cluster" "primary" {
-  name   = "${local.cluster-name}"
+  name   = "${var.cluster-name}"
   region = "${local.region}"
 
   # We can't create a cluster with no node pool defined, but we want to only use
@@ -8,8 +8,8 @@ resource "google_container_cluster" "primary" {
   # node pool and immediately delete it.
   remove_default_node_pool = true
   initial_node_count = 1
-  network = "${google_compute_network.terraform-network-dev.self_link}"
-  subnetwork                =  "${google_compute_subnetwork.terrform-subnet1-dev.self_link}"
+  network = "${google_compute_network.terraform-network-stg.self_link}"
+  subnetwork                =  "${google_compute_subnetwork.terrform-subnet1-stg.self_link}"
   private_cluster_config = {
       enable_private_nodes    = true,
       master_ipv4_cidr_block= "172.16.0.0/28"
@@ -45,7 +45,7 @@ resource "google_container_cluster" "primary" {
 
 #for production, we must not use preemptible instances
 resource "google_container_node_pool" "primary_preemptible_nodes" {
-  name       = "rpa-dev-node-pool"
+  name       = "rpa-stg-node-pool"
   region     = "asia-northeast1"
   cluster    = "${google_container_cluster.primary.name}"
   node_count = 1

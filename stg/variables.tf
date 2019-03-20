@@ -1,20 +1,17 @@
 variable "project-name" {}
-#variable "project-region" {}
 
-#variable "project-zone" {}
+variable "numberOfApp" {}
+
+variable "cluster-name" {}
+
 
 locals {
   # region for subnet, nat,router and gke
 
   region = "asia-northeast1"
 
-  env-repo-name="terraform-env-repo-dev"
+  env-repo-name="terraform-env-repo-stg"
 
-  cluster-name="rpa-dev-cluster"
-
- 
 }
 
-variable "numberOfApp" {
-  
-}
+

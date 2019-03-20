@@ -12,3 +12,7 @@ output "client_key" {
 output "cluster_ca_certificate" {
   value = "${google_container_cluster.primary.master_auth.0.cluster_ca_certificate}"
 }
+
+output "number_of_app" {
+  value = "${ var.numberOfApp }"
+}

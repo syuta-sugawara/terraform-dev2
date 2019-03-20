@@ -1,6 +1,6 @@
 
   resource "google_sourcerepo_repository" "apprepo-dev" {
-    count = "${ length(var.numberOfApp) }"
+    count = "${ var.numberOfApp }"
     name = "terraform-app${count.index}-repo-dev"
 }
 
@@ -9,7 +9,7 @@ resource "google_sourcerepo_repository" "envrepo-dev" {
 }
 
 resource "google_cloudbuild_trigger" "ci-trigger" {
-  count = "${ length(var.numberOfApp) }"
+  count = "${ var.numberOfApp }"
   trigger_template {
     branch_name = "master"
     repo_name   = "terraform-app${count.index}-repo-dev"
