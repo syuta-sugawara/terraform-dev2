@@ -46,7 +46,7 @@ resource "google_container_cluster" "primary" {
 #for production, we must not use preemptible instances
 resource "google_container_node_pool" "primary_preemptible_nodes" {
   name       = "rpa-stg-node-pool"
-  region     = "asia-northeast1"
+  region     =  "${local.region}"
   cluster    = "${google_container_cluster.primary.name}"
   node_count = 1
 
