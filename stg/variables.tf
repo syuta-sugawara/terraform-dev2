@@ -4,13 +4,14 @@ variable "numberOfApp" {}
 
 variable "cluster-name" {}
 
+variable "env-repo" {}
+
 
 locals {
   # region for subnet, nat,router and gke
 
   region = "asia-northeast1"
 
-  env-repo-name="terraform-env-repo-stg"
 
 }
 

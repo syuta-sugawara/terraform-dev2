@@ -12,7 +12,7 @@ provider "google" {
 
 #management of enabled api
 resource "google_project_services" "project" {
-  project = "ca-rpa-stg"
+  project = "${var.project-name}"
   services   = ["cloudresourcemanager.googleapis.com",
                 "container.googleapis.com",
                 "cloudbuild.googleapis.com", 

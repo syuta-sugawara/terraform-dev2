@@ -5,7 +5,7 @@
 }
 
 resource "google_sourcerepo_repository" "envrepo-stg" {
-  name = "${local.env-repo-name}"
+  name = "${var.env-repo}"
 }
 
 resource "google_cloudbuild_trigger" "ci-trigger" {
@@ -16,7 +16,7 @@ resource "google_cloudbuild_trigger" "ci-trigger" {
   }
 
   substitutions = {
-    _MANIFESTS_REPO_NAME =  "${local.env-repo-name}"
+    _MANIFESTS_REPO_NAME =  "${var.env-repo}"
     }
   
 
@@ -26,7 +26,7 @@ resource "google_cloudbuild_trigger" "ci-trigger" {
 resource "google_cloudbuild_trigger" "cd-trigger" {
   trigger_template {
     branch_name = "dev"
-    repo_name   = "${local.env-repo-name}"
+    repo_name   = "${var.env-repo}"
   }
   included_files = ["manifests/*"]
 
