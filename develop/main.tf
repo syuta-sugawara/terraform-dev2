@@ -10,19 +10,6 @@ provider "google" {
 }
 
 
-#management of enabled api
-#resource "google_project_services" "project" {
-#  project = "ca-rpa-dev"
-#  services   = ["cloudresourcemanager.googleapis.com",
-#                "container.googleapis.com",
-#                "cloudbuild.googleapis.com", 
-#                "sourcerepo.googleapis.com",
-#                "containeranalysis.googleapis.com", 
-#                "compute.googleapis.com"
-#               ]
-#}
-
-
 
 data "google_project" "project" {}
 

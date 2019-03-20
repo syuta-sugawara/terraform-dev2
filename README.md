@@ -3,18 +3,17 @@
 ## Dependency
 
 before you begin
-
 those are needed to be installed.
 
-terraform v0.11.3
-https://www.terraform.io/
+terraform v0.11.3  
+https://www.terraform.io/  
 
-Google Cloud SDK 239.0.0
-bq 2.0.42
-core 2019.03.17
-gsutil 4.37
+Google Cloud SDK 239.0.0  
+bq 2.0.42　　
+core 2019.03.17　　
+gsutil 4.37　　
 
-https://cloud.google.com/sdk/docs/downloads-interactive
+https://cloud.google.com/sdk/docs/downloads-interactive　　
 
 and create project in your gcp, then enable billing for a project
 
