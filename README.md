@@ -43,11 +43,16 @@ gcloud init
 
 gcloud components update
 
+＃set your project
+
 gcloud projects list
 
 PROJECT_ID="enter your project_id"
 
 gcloud config set project $(echo $PROJECT_ID)
+
+
+＃enable api
 
 gcloud services list --available
 
@@ -57,6 +62,8 @@ gcloud services enable compute.googleapis.com　serviceusage.googleapis.com cont
 
 gcloud services enable containerregistry.googleapis.com storage-api.googleapis.com oslogin.googleapis.com
 
+
+＃create service account for using terraform
 
 ACCOUNT="service account name creating environment"
 
@@ -68,6 +75,9 @@ gcloud iam service-accounts keys create ./account.json --iam-account $(echo $ACC
 
 gcloud projects add-iam-policy-binding $(echo $PROJECT_ID) --member serviceAccount:$(echo $ACCOUNT)@$(gcloud config get-value project).iam.gserviceaccount.com \
   --role roles/owner
+
+
+＃create environment for robot to run
 
 terraform apply
 
